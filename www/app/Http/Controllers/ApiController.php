@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\Quest;
 use DB;
 use Response;
 
@@ -22,7 +23,7 @@ class ApiController extends Controller
     }
     public function getQuests()
     {
-        $data = DB::table('quest')->select('id','type','text','answer','other','title','icon','color','status')->get();
+        $data = quest::orderBy('id')->get();
 
         return Response::json(array('success'=>true,'data' => $data));
 
