@@ -15,7 +15,7 @@ class CreateQuestTable extends Migration
         Schema::create('quest', function (Blueprint $table) {
             $table->increments('id');
             $table->string('type');
-            $table->string('text');
+            $table->text('text');
             $table->string('answer');
             $table->text('other');
             $table->string('title');
